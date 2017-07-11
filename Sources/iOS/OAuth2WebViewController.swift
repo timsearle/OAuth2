@@ -142,15 +142,10 @@
         
         func showHideBackButton(_ show: Bool) {
             if show {
-                if let bb = backButton {
-                    bb.target = self
-                    bb.action = #selector(OAuth2WebViewController.goBack(_:))
-                    navigationItem.leftBarButtonItem = bb
-                } else {
-                    let bb = UIBarButtonItem(barButtonSystemItem: .rewind, target: self, action: #selector(OAuth2WebViewController.goBack(_:)))
-                    navigationItem.leftBarButtonItem = bb
-                }
-            } else {
+                let bb = backButton ?? UIBarButtonItem(image: UIImage(named: "BackArrow")!, style: .done, target: self, action: #selector(OAuth2WebViewController.goBack(_:)))
+                navigationItem.leftBarButtonItem = bb
+            }
+            else {
                 navigationItem.leftBarButtonItem = nil
             }
         }
