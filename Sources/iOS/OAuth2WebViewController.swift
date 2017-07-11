@@ -153,7 +153,7 @@ open class OAuth2WebViewController: UIViewController, WKNavigationDelegate {
 	func showLoadingIndicator() {
 		
         if let loadingView = loadingView, loadingView.superview == nil {
-            self.view.addSubview(loadingView)
+            self.view.insertSubview(loadingView, aboveSubview: self.webView!)
             
             view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0))
             view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0))
