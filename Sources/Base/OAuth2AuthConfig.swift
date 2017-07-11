@@ -34,6 +34,9 @@ public struct OAuth2AuthConfig {
 		/// Title to propagate to views handled by OAuth2, such as OAuth2WebViewController.
 		public var title: String? = nil
 		
+		/// Title to propagate to views handled by OAuth2, such as OAuth2WebViewController.
+		public var attributedTitle: NSAttributedString? = nil
+		
 		/// By assigning your own UIBarButtonItem (!) you can override the back button that is shown in the iOS embedded web view (does NOT apply to `SFSafariViewController`).
 		public var backButton: AnyObject? = nil
 		

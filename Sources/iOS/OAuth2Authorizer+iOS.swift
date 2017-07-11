@@ -184,7 +184,14 @@ open class OAuth2Authorizer: OAuth2AuthorizerUI {
 	*/
 	final func presentAuthorizeView(forURL url: URL, intercept: String, from controller: UIViewController) -> OAuth2WebViewController {
 		let web = OAuth2WebViewController()
-		web.title = oauth2.authConfig.ui.title
+		
+		if let attributedTitle = oauth2.authConfig.ui.attributedTitle {
+                   let label = UILabel()
+                   label.attributedText = attributedTitle
+                   web.navigationItem.titleView = label
+            	} else {
+               	    web.title = oauth2.authConfig.ui.title
+            	}
 		web.backButton = oauth2.authConfig.ui.backButton as? UIBarButtonItem
 		web.showCancelButton = oauth2.authConfig.ui.showCancelButton
 		web.startURL = url
