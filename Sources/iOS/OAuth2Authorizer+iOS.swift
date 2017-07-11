@@ -193,6 +193,7 @@
             } else {
                 web.title = oauth2.authConfig.ui.title
             }
+            web.loadingView = oauth2.authConfig.ui.loadingView
             web.backButton = oauth2.authConfig.ui.backButton as? UIBarButtonItem
             web.showCancelButton = oauth2.authConfig.ui.showCancelButton
             web.startURL = url

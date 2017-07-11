@@ -123,6 +123,8 @@ open class OAuth2WebViewController: UIViewController, WKNavigationDelegate {
 		view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[web]|", options: [], metrics: nil, views: views))
 		view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[web]|", options: [], metrics: nil, views: views))
 		webView = web
+        
+        showLoadingIndicator()
 	}
 	
 	override open func viewWillAppear(_ animated: Bool) {
@@ -149,11 +151,26 @@ open class OAuth2WebViewController: UIViewController, WKNavigationDelegate {
 	}
 	
 	func showLoadingIndicator() {
-		// TODO: implement
+		
+        if let loadingView = loadingView, loadingView.superview == nil {
+            self.view.addSubview(loadingView)
+            
+            view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0))
+        }
 	}
 	
 	func hideLoadingIndicator() {
-		// TODO: implement
+        
+        loadingView?.removeFromSuperview()
+        
+        UIView.animate(withDuration: 0.3, animations: { 
+            self.loadingView?.alpha = 1
+        }, completion: { (finished) in
+            self.loadingView?.alpha = 1
+        })
 	}
 	
 	func showErrorMessage(_ message: String, animated: Bool) {
