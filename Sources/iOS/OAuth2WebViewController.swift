@@ -155,10 +155,10 @@ open class OAuth2WebViewController: UIViewController, WKNavigationDelegate {
         if let loadingView = loadingView, loadingView.superview == nil {
             self.view.insertSubview(loadingView, aboveSubview: self.webView!)
             
-            view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0))
-            view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0))
-            view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0))
-            view.addConstraint(NSLayoutConstraint(item: self.view, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: loadingView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: loadingView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: loadingView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0))
+            view.addConstraint(NSLayoutConstraint(item: loadingView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0))
         }
 	}
 	
