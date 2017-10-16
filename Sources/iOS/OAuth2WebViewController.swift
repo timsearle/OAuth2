@@ -166,14 +166,7 @@
         }
         
         func hideLoadingIndicator() {
-            
             loadingView?.removeFromSuperview()
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.loadingView?.alpha = 1
-            }, completion: { (finished) in
-                self.loadingView?.alpha = 1
-            })
         }
         
         func showErrorMessage(_ message: String, animated: Bool) {
