@@ -222,6 +222,8 @@
                     else {
                         decisionHandler(.allow)
                     }
+                    
+                    return
                 }
             }
             decisionHandler(.allow)
